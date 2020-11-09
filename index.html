@@ -19,7 +19,7 @@
                     <div class="bullets">
                         <i  v-for="i in imageSources.length"
                             :class="i -1 == indexImage ? 'fas' : 'far'"
-                            @click="changeImg"
+                            @click="changeImg(i)"
                             class="fa-circle"></i>
                     </div>
                 </div>
@@ -27,6 +27,7 @@
                     <i @click="nextImg" class="fas fa-arrow-right fa-3x"></i>
                 </div>
             </div>
+            <button @click='toggleAutoplay' type="button" name="button">{{ toggle }} Autoplay</button>
         </div>
         <script src="main.js" charset="utf-8"></script>
     </body>

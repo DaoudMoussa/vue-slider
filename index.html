@@ -19,6 +19,7 @@
                     <div class="bullets">
                         <i  v-for="i in imageSources.length"
                             :class="i -1 == indexImage ? 'fas' : 'far'"
+                            @click="changeImg"
                             class="fa-circle"></i>
                     </div>
                 </div>

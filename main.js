@@ -29,14 +29,31 @@ let app = new Vue ({
             // Stessa cosa con ternario
             // this.indexImage == this.imageSources.length - 1 ? this.indexImage = 0 : this.indexImage++;
         },
+        changeImg(event) {
+            // identifico il cerchio cliccato
+            const selectedCircle = event.target;
+            console.log(selectedCircle);
+
+            // prendo l'array di cerchi
+            const circleArray = document.getElementsByClassName('fa-circle');
+            console.log(circleArray);
+
+            // prendo líndice del cerchio cliccato dall'array di cerchi
+            let selectedIndex;
+            for(let i = 0; i < circleArray.length; i++) {
+                if (circleArray[i] == selectedCircle) {
+                    selectedIndex = i;
+                }
+            }
+            console.log(selectedIndex);
+            
+            // imposto indexImage uguale all'indice appena ricavato
+            this.indexImage = selectedIndex;
+        },
         autoPlay() {
             let instance = this;
             setInterval(() => {
-                if (instance.indexImage < instance.imageSources.length - 1) {
-                    instance.indexImage++;
-                } else {
-                    instance.indexImage = 0;
-                }
+                instance.nextImg();
             }, 2000);
         }
     },

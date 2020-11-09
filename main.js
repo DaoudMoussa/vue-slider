@@ -28,6 +28,19 @@ let app = new Vue ({
             }
             // Stessa cosa con ternario
             // this.indexImage == this.imageSources.length - 1 ? this.indexImage = 0 : this.indexImage++;
+        },
+        autoPlay() {
+            let instance = this;
+            setInterval(() => {
+                if (instance.indexImage < instance.imageSources.length - 1) {
+                    instance.indexImage++;
+                } else {
+                    instance.indexImage = 0;
+                }
+            }, 2000);
         }
+    },
+    created() {
+        this.autoPlay();
     }
 });

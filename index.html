@@ -11,20 +11,23 @@
     <body>
         <div id="root">
             <div class="container">
-                <div class="prev">
-                    <i @click="prevImg" class="fas fa-arrow-left fa-3x"></i>
-                </div>
-                <div class="img-box">
-                    <img v-bind:src="imageSources[indexImage]" alt="">
-                    <div class="bullets">
-                        <i  v-for="i in imageSources.length"
+                <div @mouseover="stopAutoplay" @mouseleave="playAutoplay" class="slider-wrapper">
+                    <div class="prev">
+                        <i @click="prevImg" class="fas fa-arrow-left fa-3x"></i>
+                    </div>
+                    <div class="img-box">
+                        <img v-bind:src="imageSources[indexImage]" alt="">
+                        <div class="bullets">
+                            <i  v-for="i in imageSources.length"
                             :class="i -1 == indexImage ? 'fas' : 'far'"
                             @click="changeImg(i)"
                             class="fa-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="next">
-                    <i @click="nextImg" class="fas fa-arrow-right fa-3x"></i>
+                    <div class="next">
+                        <i @click="nextImg" class="fas fa-arrow-right fa-3x"></i>
+                    </div>
+
                 </div>
             </div>
             <button @click='toggleAutoplay' type="button" name="button">{{ toggle }} Autoplay</button>

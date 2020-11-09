@@ -69,6 +69,12 @@ let app = new Vue ({
                 this.toggle = 'Stop';
                 this.autoPlay();
             }
+        },
+        stopAutoplay() {
+            clearInterval(this.interval);
+        },
+        playAutoplay() {
+            this.autoPlay();
         }
     },
     created() {
